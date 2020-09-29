@@ -1,0 +1,72 @@
+.list {
+  $self: &;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+  color: #333;
+  li {
+    display: flex;
+    align-items: center;
+    padding: 5px 6px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    max-width: 100%;
+    justify-content: flex-start;
+    border-radius: 5px;
+    font-weight: 700;
+
+    #{$self}__item-icon {
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
+    }
+
+    #{$self}__item-remove {
+      opacity: 0;
+      display: flex;
+    }
+
+    &:hover #{$self}__item-remove {
+      opacity: 0.4;
+    }
+
+    #{$self}__item-remove {
+      transition: opacity 0.15s ease-in-out;
+      opacity: 0;
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      transition: background-color 0.15s ease-in-out;
+      background: #fff;
+    }
+
+    &.active {
+      background: #fff;
+
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .badge {
+      display: flex;
+      margin-right: 10px;
+      margin-left: 6px;
+    }
+
+    span {
+      flex: 1;
+      width: 100%;
+      max-width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    img {
+      height: 16px;
+    }
+  }
+}

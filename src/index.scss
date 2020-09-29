@@ -1,0 +1,145 @@
+@import url(./assets/fonts/fonts.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: 0;
+}
+
+body {
+  font-family: 'Roboto', system-ui, sans-serif;
+}
+
+.todo {
+  margin: 50px auto;
+  display: flex;
+  width: calc(100vw - 60px);
+  height: calc(100vh - 100px);
+
+  font-size: 16px;
+
+  border-radius: 10px;
+  box-shadow: 1px 2px 20px #dadada;
+  border: 1px solid #f1f1f1;
+
+  &__sidebar {
+    background-color: #f8f8f8;
+    width: 25%;
+    border-right: solid 1px #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    .checkbox {
+      display: flex;
+      align-self: flex-end;
+      padding-top: 50px;
+      input {
+        display: none;
+      }
+
+      label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        svg {
+          stroke: #aaa;
+          transition: opacity 0.1s ease-in-out;
+          opacity: 0.4;
+        }
+      }
+
+      &:hover {
+        label {
+          svg {
+            transition: opacity 0.1s ease-in-out;
+            opacity: 0.7;
+            // stroke: #aaa;
+          }
+        }
+      }
+
+      input:checked + label {
+        // background-color: #4dd599;
+        // border-color: #4dd599;
+
+        svg {
+          opacity: 1;
+
+          stroke: #eee;
+          path:nth-of-type(2) {
+            fill: #eee;
+            stroke: #eee;
+          }
+          path:nth-of-type(1) {
+            fill: #4dd599;
+            stroke: #eee;
+          }
+        }
+      }
+    }
+  }
+
+  &__tasks {
+    flex: 1;
+    padding: 30px;
+    overflow: auto;
+  }
+}
+
+.field {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  width: 100%;
+
+  font-family: 'Roboto';
+  font-size: 14px;
+
+  &:focus {
+    border-color: #dbdbdb;
+  }
+}
+
+.button {
+  background: #4dd599;
+  border-radius: 4px;
+  color: #fff;
+  border: 0;
+  padding: 10px 20px;
+
+  &:hover {
+    background: darken($color: #4dd599, $amount: 5%);
+    cursor: pointer;
+  }
+
+  &:active {
+    background: darken($color: #4dd599, $amount: 10%);
+  }
+
+  &:disabled {
+    background-color: #aaa;
+  }
+
+  &_cancel {
+    background: #ddd;
+
+    &:hover {
+      background: darken($color: #ddd, $amount: 5%);
+      cursor: pointer;
+    }
+
+    &:active {
+      background: darken($color: #ddd, $amount: 10%);
+    }
+  }
+}

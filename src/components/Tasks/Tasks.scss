@@ -1,0 +1,183 @@
+.tasks {
+  $self: &;
+
+  &:not(:last-of-type) {
+    margin-bottom: 30px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  &__header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #{$self}__title {
+      font-family: 'Roboto';
+      display: flex;
+
+      &:hover img {
+        opacity: 0.2;
+      }
+
+      img {
+        opacity: 0;
+        margin-left: 10px;
+
+        &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #{$self}__toolbar {
+      display: flex;
+
+      svg {
+        opacity: 0.2;
+        cursor: pointer;
+        margin-left: 5px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &__items {
+    padding: 20px;
+
+    h2 {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 30px;
+      color: #cccccc;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      &_completed {
+        opacity: 0.3;
+      }
+
+      p {
+        display: inline-block;
+        align-items: center;
+        margin-left: 15px;
+        border: 0;
+        font-size: 16px;
+        width: 100%;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      &-actions {
+        display: flex;
+        svg {
+          margin-left: 15px;
+          opacity: 0.2;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+      }
+
+      &:hover {
+        svg {
+          opacity: 0.5;
+        }
+      }
+
+      svg:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .checkbox {
+      display: flex;
+      input {
+        display: none;
+      }
+
+      label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #eee;
+        border-radius: 30px;
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        svg {
+          stroke: #aaa;
+          transition: opacity 0.2s ease-in-out;
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        label {
+          background-color: #eee;
+          svg {
+            transition: opacity 0.2s ease-in-out;
+            opacity: 1;
+            stroke: #aaa;
+          }
+        }
+      }
+
+      input:checked + label {
+        background-color: #4dd599;
+        border-color: #4dd599;
+
+        svg {
+          opacity: 1;
+          stroke: #fff;
+        }
+      }
+    }
+  }
+
+  &__form {
+    margin: 0 0 10px;
+    &-new {
+      display: flex;
+      align-items: center;
+      opacity: 0.4;
+      cursor: pointer;
+      transition: opacity 0.15s ease-in-out;
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      span {
+        margin-left: 15px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &-create {
+      .button {
+        margin-top: 15px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
